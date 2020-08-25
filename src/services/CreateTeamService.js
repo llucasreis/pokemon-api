@@ -1,18 +1,16 @@
-import container from '../container';
+// import container from '../container';
 import AppError from '../errors/AppError';
 
 export default class CreateTeamService {
   constructor(teamsRepository, pokemonsRepository) {
-    this.teamsRepository =
-      container.resolve('teamsRepository') || teamsRepository;
-    this.pokemonsRepository =
-      container.resolve('pokemonsRepository') || pokemonsRepository;
+    this.teamsRepository = teamsRepository;
+    this.pokemonsRepository = pokemonsRepository;
   }
 
   async execute({ trainer_name, team_name, pokemons }) {
     if (trainer_name.length < 5) {
       throw new AppError(
-        "Trainer's Name must be equal or more than 5 caracters.",
+        "Trainer's Name must be equal or more than 5 characters.",
       );
     }
 
@@ -34,8 +32,8 @@ export default class CreateTeamService {
       pokemon => !existentPokemonsIds.includes(pokemon.id),
     );
 
-    if (checkInexistentPokemons.length) {
-      throw new AppError('Some pokemons does not exist.');
+    if (checkInexistentPokemons.length > 0) {
+      throw new AppError('Some pokemons could not be found.');
     }
 
     const team = await this.teamsRepository.create({
