@@ -1,6 +1,9 @@
+import container from '../container';
+
 export default class ListPokemonsService {
   constructor(pokemonsRepository) {
-    this.pokemonsRepository = pokemonsRepository;
+    this.pokemonsRepository =
+      container.resolve('pokemonsRepository') || pokemonsRepository;
   }
 
   async execute({ name, type }) {

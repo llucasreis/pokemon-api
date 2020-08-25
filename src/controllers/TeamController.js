@@ -1,19 +1,18 @@
 // index, show, store, update, destroy
-import CreateTeamService from '../services/CreateTeamService';
-import TeamsRepository from '../repositories/TeamsRepository';
-import PokemonsRepository from '../repositories/PokemonsRepository';
+// import CreateTeamService from '../services/CreateTeamService';
+// import TeamsRepository from '../repositories/TeamsRepository';
+// import PokemonsRepository from '../repositories/PokemonsRepository';
 
-const teamsRepository = new TeamsRepository();
-const pokemonsRepository = new PokemonsRepository();
+import container from '../container';
+
+// const teamsRepository = new TeamsRepository();
+// const pokemonsRepository = new PokemonsRepository();
 
 export default class TeamController {
   async create(req, res) {
     const { trainer_name, team_name, pokemons } = req.body;
 
-    const createTeam = new CreateTeamService(
-      teamsRepository,
-      pokemonsRepository,
-    );
+    const createTeam = container.resolve('createTeamService');
 
     const team = await createTeam.execute({
       trainer_name,

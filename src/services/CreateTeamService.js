@@ -1,9 +1,12 @@
+import container from '../container';
 import AppError from '../errors/AppError';
 
 export default class CreateTeamService {
   constructor(teamsRepository, pokemonsRepository) {
-    this.teamsRepository = teamsRepository;
-    this.pokemonsRepository = pokemonsRepository;
+    this.teamsRepository =
+      container.resolve('teamsRepository') || teamsRepository;
+    this.pokemonsRepository =
+      container.resolve('pokemonsRepository') || pokemonsRepository;
   }
 
   async execute({ trainer_name, team_name, pokemons }) {

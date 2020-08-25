@@ -1,12 +1,14 @@
-import ListPokemonsService from '../services/ListPokemonsService';
-import PokemonsRepository from '../repositories/PokemonsRepository';
+// import ListPokemonsService from '../services/ListPokemonsService';
+// import PokemonsRepository from '../repositories/PokemonsRepository';
+import container from '../container';
 
-const pokemonsRepository = new PokemonsRepository();
+// const pokemonsRepository = new PokemonsRepository();
 
 export default class PokemonController {
   async index(req, res) {
     const { name, type } = req.query;
-    const listPokemons = new ListPokemonsService(pokemonsRepository);
+    const listPokemons = container.resolve('listPokemonsService');
+    // const listPokemons = new ListPokemonsService(pokemonsRepository);
 
     const pokemons = await listPokemons.execute({ name, type });
 
