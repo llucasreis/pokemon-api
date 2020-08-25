@@ -1,38 +1,40 @@
-import fs from 'fs';
-import pokemonDatabase from '../config/pokemonDatabase';
+import Pokemon from '../models/Pokemon';
 
 export default class PokemonsRepository {
   constructor() {
-    const data = JSON.parse(
-      fs.readFileSync(pokemonDatabase.pokemonJSONFolder, 'utf-8'),
-    );
-
-    const pokemons = Array.from(data.pokemon);
-
-    this.jsonRepository = pokemons;
+    this.mongooseRepository = Pokemon;
   }
 
   async find({ name, types }) {
-    let pokemons = this.jsonRepository;
+    if (name && types) {
+      return this.mongooseRepository
+        .find({
+          name: { $regex: name, $options: 'i' },
+          types: { $in: types },
+        })
+        .sort('id');
+    }
 
     if (name) {
-      pokemons = pokemons.filter(pokemon => pokemon.name.includes(name));
+      return this.mongooseRepository
+        .find({
+          name: { $regex: name, $options: 'i' },
+        })
+        .sort('id');
     }
 
     if (types) {
-      pokemons = pokemons.filter(pokemon =>
-        pokemon.types.some(type => types.indexOf(type) >= 0),
-      );
+      return this.mongooseRepository.find({ types: { $in: types } }).sort('id');
     }
 
-    return pokemons;
+    return this.mongooseRepository.find().sort('id');
   }
 
   async findAllById(pokemons) {
     const pokemonIds = pokemons.map(pokemon => pokemon.id);
 
-    return this.jsonRepository.filter(pokemon =>
-      pokemonIds.includes(pokemon.id),
-    );
+    return this.mongooseRepository.find({
+      id: { $in: pokemonIds },
+    });
   }
 }

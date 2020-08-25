@@ -5,7 +5,10 @@ const TeamSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  team_name: String,
+  team_name: {
+    type: String,
+    default: '',
+  },
   pokemons: {
     type: [{ _id: false, id: Number, name: String }],
     required: true,
