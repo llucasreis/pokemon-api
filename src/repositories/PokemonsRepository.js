@@ -27,4 +27,12 @@ export default class PokemonsRepository {
 
     return pokemons;
   }
+
+  async findAllById(pokemons) {
+    const pokemonIds = pokemons.map(pokemon => pokemon.id);
+
+    return this.jsonRepository.filter(pokemon =>
+      pokemonIds.includes(pokemon.id),
+    );
+  }
 }
