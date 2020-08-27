@@ -4,11 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "start": "node dist/index.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
     "dev": "nodemon src/index.js",
     "test": "jest"
   },
   "dependencies": {
     "awilix": "^4.2.6",
+    "celebrate": "^12.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
