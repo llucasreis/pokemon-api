@@ -9,10 +9,12 @@ import AppError from './errors/AppError';
 const app = express();
 const port = process.env.APP_PORT || 3333;
 
-mongoose.connect(process.env.APP_DATABASE, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect(process.env.APP_DATABASE, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .catch(() => console.log('MongoDB is not connected. Check your database'));
 
 app.use(express.json());
 app.use(cors());
