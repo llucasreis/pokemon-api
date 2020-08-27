@@ -1,5 +1,6 @@
-[
-      {
+{
+  "pokemon": [
+    {
       "id": 1,
       "name": "bulbasaur",
       "height": 0.7,
@@ -9282,3 +9283,4 @@
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/807.png"
     }
   ]
+}

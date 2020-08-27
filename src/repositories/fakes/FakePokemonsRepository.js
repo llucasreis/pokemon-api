@@ -7,7 +7,7 @@ export default class PokemonsRepository {
       fs.readFileSync(pokemonDatabase.pokemonJSONFolder, 'utf-8'),
     );
 
-    const pokemons = Array.from(data.pokemon);
+    const pokemons = Array.from(data);
 
     this.fakeRepository = pokemons;
   }
