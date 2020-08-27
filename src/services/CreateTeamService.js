@@ -28,8 +28,8 @@ export default class CreateTeamService {
       pokemons,
     );
 
-    if (!existentPokemons) {
-      throw new AppError('Could not found any pokemon.');
+    if (existentPokemons.length === 0) {
+      throw new AppError('Could not found any pokemon.', 404);
     }
 
     const existentPokemonsIds = existentPokemons.map(pokemon => pokemon.id);
@@ -39,13 +39,13 @@ export default class CreateTeamService {
     );
 
     if (checkInexistentPokemons.length > 0) {
-      throw new AppError('Some pokemons could not be found.');
+      throw new AppError('Some pokemons could not be found.', 404);
     }
 
     const team = await this.teamsRepository.create({
       trainer_name,
       team_name,
-      pokemons,
+      pokemons: existentPokemons,
     });
 
     return team;

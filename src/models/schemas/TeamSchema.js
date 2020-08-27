@@ -19,7 +19,7 @@ const TeamSchema = new mongoose.Schema({
     required: true,
   },
   pokemons: {
-    type: [{ _id: false, id: Number, name: String }],
+    type: [],
     required: true,
   },
 });
