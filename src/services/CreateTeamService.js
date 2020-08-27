@@ -14,6 +14,12 @@ export default class CreateTeamService {
       );
     }
 
+    if (team_name.length < 5) {
+      throw new AppError(
+        "Team's Name must be equal or more than 5 characters.",
+      );
+    }
+
     if (pokemons.length !== 6) {
       throw new AppError('Team must have 6 pokemons.');
     }

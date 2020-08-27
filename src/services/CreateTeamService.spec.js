@@ -54,40 +54,6 @@ describe('CreateTeam', () => {
     expect(team).toHaveProperty('_id');
   });
 
-  it('should be able to create a team without team_name', async () => {
-    const team = await createTeam.execute({
-      trainer_name: 'Lucas',
-      pokemons: [
-        {
-          id: 59,
-          name: 'arcanine',
-        },
-        {
-          id: 257,
-          name: 'blaziken',
-        },
-        {
-          id: 663,
-          name: 'talonflame',
-        },
-        {
-          id: 609,
-          name: 'chandelure',
-        },
-        {
-          id: 485,
-          name: 'heatran',
-        },
-        {
-          id: 494,
-          name: 'victini',
-        },
-      ],
-    });
-
-    expect(team).toHaveProperty('_id');
-  });
-
   it('should not be able to create a team with less than 6 pokemons', async () => {
     await expect(
       createTeam.execute({
@@ -108,6 +74,41 @@ describe('CreateTeam', () => {
       createTeam.execute({
         trainer_name: 'Lu',
         team_name: 'MonoFire',
+        pokemons: [
+          {
+            id: 59,
+            name: 'arcanine',
+          },
+          {
+            id: 257,
+            name: 'blaziken',
+          },
+          {
+            id: 663,
+            name: 'talonflame',
+          },
+          {
+            id: 609,
+            name: 'chandelure',
+          },
+          {
+            id: 485,
+            name: 'heatran',
+          },
+          {
+            id: 494,
+            name: 'victini',
+          },
+        ],
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
+  it('should not be able to create a team with team_name less than 5 characters', async () => {
+    await expect(
+      createTeam.execute({
+        trainer_name: 'Lucas',
+        team_name: 'Mo',
         pokemons: [
           {
             id: 59,

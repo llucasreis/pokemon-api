@@ -7,7 +7,7 @@ const TeamSchema = new mongoose.Schema({
   },
   team_name: {
     type: String,
-    default: '',
+    required: true,
   },
   pokemons: {
     type: [{ _id: false, id: Number, name: String }],
