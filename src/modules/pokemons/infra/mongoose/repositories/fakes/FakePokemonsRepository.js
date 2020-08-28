@@ -1,11 +1,9 @@
 import fs from 'fs';
-import pokemonDatabase from '../../config/pokemonDatabase';
+import { pokemonJSONDatabase } from '~config/database';
 
 export default class PokemonsRepository {
   constructor() {
-    const data = JSON.parse(
-      fs.readFileSync(pokemonDatabase.pokemonJSONFolder, 'utf-8'),
-    );
+    const data = JSON.parse(fs.readFileSync(pokemonJSONDatabase, 'utf-8'));
 
     const pokemons = Array.from(data);
 

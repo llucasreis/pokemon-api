@@ -1,8 +1,8 @@
-import FakePokemonsRepository from '../repositories/fakes/FakePokemonsRepository';
-import FakeTeamsRepository from '../repositories/fakes/FakeTeamsRepository';
+import FakePokemonsRepository from '../../pokemons/infra/mongoose/repositories/fakes/FakePokemonsRepository';
+import FakeTeamsRepository from '../infra/mongoose/repositories/fakes/FakeTeamsRepository';
 
 import CreateTeamService from './CreateTeamService';
-import AppValidationError from '../errors/AppValidationError';
+import AppValidationError from '~shared/errors/AppValidationError';
 
 let fakePokemonsRepository;
 let fakeTeamsRepository;
@@ -163,7 +163,7 @@ describe('CreateTeam', () => {
     ).rejects.toBeInstanceOf(AppValidationError);
   });
 
-  it('should not able to create a team if all pokemons cannot be found', async () => {
+  it('should not be able to create a team if all pokemons cannot be found', async () => {
     await expect(
       createTeam.execute({
         trainer_name: 'Lucas',

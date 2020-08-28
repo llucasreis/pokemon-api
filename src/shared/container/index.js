@@ -1,10 +1,10 @@
 /* eslint-disable import/no-cycle */
 import { createContainer, asClass } from 'awilix';
-import ListPokemonsService from '../services/ListPokemonsService';
-import CreateTeamService from '../services/CreateTeamService';
+import ListPokemonsService from '../../modules/pokemons/services/ListPokemonsService';
+import CreateTeamService from '../../modules/teams/services/CreateTeamService';
 
-import TeamsRepository from '../repositories/TeamsRepository';
-import PokemonsRepository from '../repositories/PokemonsRepository';
+import TeamsRepository from '../../modules/teams/infra/mongoose/repositories/TeamsRepository';
+import PokemonsRepository from '../../modules/pokemons/infra/mongoose/repositories/PokemonsRepository';
 
 const container = createContainer();
 

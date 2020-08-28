@@ -1,4 +1,4 @@
-import FakePokemonRepository from '../repositories/fakes/FakePokemonsRepository';
+import FakePokemonRepository from '../infra/mongoose/repositories/fakes/FakePokemonsRepository';
 import ListPokemonsService from './ListPokemonsService';
 
 let fakePokemonRepository;

@@ -1,5 +1,5 @@
-import ListPokemonsService from '../services/ListPokemonsService';
-import PokemonsRepository from '../repositories/PokemonsRepository';
+import ListPokemonsService from '../../../services/ListPokemonsService';
+import PokemonsRepository from '../../mongoose/repositories/PokemonsRepository';
 // import container from '../container';
 
 const pokemonsRepository = new PokemonsRepository();

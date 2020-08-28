@@ -1,6 +1,6 @@
 import { isCelebrate } from 'celebrate';
-import AppError from '../errors/AppError';
-import AppValidationError from '../errors/AppValidationError';
+import AppError from '~shared/errors/AppError';
+import AppValidationError from '~shared/errors/AppValidationError';
 
 export default function validateErrors(err, req, res, _next) {
   if (isCelebrate(err)) {

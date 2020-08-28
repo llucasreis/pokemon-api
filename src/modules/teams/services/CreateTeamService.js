@@ -1,5 +1,5 @@
 // import container from '../container';
-import AppValidationError from '../errors/AppValidationError';
+import AppValidationError from '~shared/errors/AppValidationError';
 
 export default class CreateTeamService {
   constructor(teamsRepository, pokemonsRepository) {
