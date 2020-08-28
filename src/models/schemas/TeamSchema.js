@@ -13,13 +13,15 @@ const TeamSchema = new mongoose.Schema({
   trainer_name: {
     type: String,
     required: true,
+    minlength: 5,
   },
   team_name: {
     type: String,
     required: true,
+    minlength: 5,
   },
   pokemons: {
-    type: [],
+    type: Array,
     required: true,
   },
 });

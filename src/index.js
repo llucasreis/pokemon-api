@@ -3,9 +3,8 @@ import 'express-async-errors';
 import cors from 'cors';
 import 'dotenv/config';
 import mongoose from 'mongoose';
-import { errors } from 'celebrate';
 import routes from './routes';
-import AppError from './errors/AppError';
+import validateErrors from './middlewares/validateErrors';
 
 const app = express();
 const port = process.env.APP_PORT || 3333;
@@ -23,23 +22,7 @@ mongoose
 app.use(express.json());
 app.use(cors());
 app.use(routes);
-app.use(errors());
-
-app.use((err, req, res, _next) => {
-  if (err instanceof AppError) {
-    return res.status(err.status).json({
-      status: 'error',
-      message: err.message,
-    });
-  }
-
-  console.log(err);
-
-  return res.status(500).json({
-    status: 'error',
-    message: 'Interval Server Error',
-  });
-});
+app.use(validateErrors);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

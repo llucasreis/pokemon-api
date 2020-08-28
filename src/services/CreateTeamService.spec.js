@@ -2,7 +2,7 @@ import FakePokemonsRepository from '../repositories/fakes/FakePokemonsRepository
 import FakeTeamsRepository from '../repositories/fakes/FakeTeamsRepository';
 
 import CreateTeamService from './CreateTeamService';
-import AppError from '../errors/AppError';
+import AppValidationError from '../errors/AppValidationError';
 
 let fakePokemonsRepository;
 let fakeTeamsRepository;
@@ -54,7 +54,7 @@ describe('CreateTeam', () => {
     expect(team).toHaveProperty('_id');
   });
 
-  it('should not be able to create a team with less than 6 pokemons', async () => {
+  it('should not be able to create a team with more than 6 pokemons', async () => {
     await expect(
       createTeam.execute({
         trainer_name: 'Lucas',
@@ -64,9 +64,33 @@ describe('CreateTeam', () => {
             id: 59,
             name: 'arcanine',
           },
+          {
+            id: 257,
+            name: 'blaziken',
+          },
+          {
+            id: 663,
+            name: 'talonflame',
+          },
+          {
+            id: 609,
+            name: 'chandelure',
+          },
+          {
+            id: 485,
+            name: 'heatran',
+          },
+          {
+            id: 494,
+            name: 'victini',
+          },
+          {
+            id: 256,
+            name: 'combusken',
+          },
         ],
       }),
-    ).rejects.toBeInstanceOf(AppError);
+    ).rejects.toBeInstanceOf(AppValidationError);
   });
 
   it('should not be able to create a team with trainer_name less than 5 characters', async () => {
@@ -101,7 +125,7 @@ describe('CreateTeam', () => {
           },
         ],
       }),
-    ).rejects.toBeInstanceOf(AppError);
+    ).rejects.toBeInstanceOf(AppValidationError);
   });
 
   it('should not be able to create a team with team_name less than 5 characters', async () => {
@@ -136,7 +160,7 @@ describe('CreateTeam', () => {
           },
         ],
       }),
-    ).rejects.toBeInstanceOf(AppError);
+    ).rejects.toBeInstanceOf(AppValidationError);
   });
 
   it('should not able to create a team if all pokemons cannot be found', async () => {
@@ -171,7 +195,7 @@ describe('CreateTeam', () => {
           },
         ],
       }),
-    ).rejects.toBeInstanceOf(AppError);
+    ).rejects.toBeInstanceOf(AppValidationError);
   });
 
   it('should not be able to create a team if some pokemons cannot be found', async () => {
@@ -206,6 +230,6 @@ describe('CreateTeam', () => {
           },
         ],
       }),
-    ).rejects.toBeInstanceOf(AppError);
+    ).rejects.toBeInstanceOf(AppValidationError);
   });
 });
