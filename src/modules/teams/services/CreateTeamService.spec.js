@@ -2,7 +2,7 @@ import FakePokemonsRepository from '../../pokemons/infra/mongoose/repositories/f
 import FakeTeamsRepository from '../infra/mongoose/repositories/fakes/FakeTeamsRepository';
 
 import CreateTeamService from './CreateTeamService';
-import AppValidationError from '~shared/errors/AppValidationError';
+import AppValidationError from '../../../shared/errors/AppValidationError';
 
 let fakePokemonsRepository;
 let fakeTeamsRepository;

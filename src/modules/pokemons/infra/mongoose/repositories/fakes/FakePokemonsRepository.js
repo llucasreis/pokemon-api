@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { pokemonJSONDatabase } from '~config/database';
+import { pokemonJSONDatabase } from '../../../../../../config/database';
 
 export default class PokemonsRepository {
   constructor() {

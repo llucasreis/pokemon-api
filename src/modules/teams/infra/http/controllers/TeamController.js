@@ -1,8 +1,7 @@
 // index, show, store, update, destroy
 import CreateTeamService from '../../../services/CreateTeamService';
 import TeamsRepository from '../../mongoose/repositories/TeamsRepository';
-import PokemonsRepository from '~modules/pokemons/infra/mongoose/repositories/PokemonsRepository';
-
+import PokemonsRepository from '../../../../pokemons/infra/mongoose/repositories/PokemonsRepository';
 // import container from '../container';
 
 const teamsRepository = new TeamsRepository();

@@ -3,7 +3,7 @@ import 'express-async-errors';
 import cors from 'cors';
 import routes from './routes';
 import validateErrors from './middlewares/validateErrors';
-import { createMongooseConnection } from '~config/database';
+import { createMongooseConnection } from '../../../config/database';
 
 const app = express();
 const port = process.env.APP_PORT || 3333;

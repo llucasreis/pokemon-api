@@ -7,15 +7,7 @@
     "start": "node dist/index.js",
     "build": "sucrase ./src -d ./dist --transforms imports",
     "dev": "nodemon src/index.js",
-    "test": "jest",
-    "postinstall": "link-module-alias",
-    "preinstall": "command -v link-module-alias && link-module-alias clean || true"
-  },
-  "_moduleAliases": {
-    "~root": ".",
-    "~config": "src/config",
-    "~modules": "src/modules",
-    "~shared": "src/shared"
+    "test": "jest"
   },
   "dependencies": {
     "awilix": "^4.2.6",
@@ -24,7 +16,6 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
-    "link-module-alias": "^1.2.0",
     "mongodb": "^3.6.0",
     "mongoose": "^5.10.0"
   },
