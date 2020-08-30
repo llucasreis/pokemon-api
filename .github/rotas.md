@@ -1,37 +1,5 @@
 # Rotas da Aplicação
 
-<style>
-  .text-white {
-    color: #fff;
-  }
-
-  .bg-blue {
-    background-color: #0366d6
-  }
-
-  .bg-green {
-    background-color: #49CC90
-  }
-
-  .rounded-1 {
-    border-radius: 3px;
-  }
-
-  .uppercase {
-    text-transform: uppercase;
-  }
-
-  .px-2 {
-    padding-right: 8px;
-    padding-left: 8px;
-  }
-
-  .py-1 {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-</style>
-
 Atualmente a API possui dos módulos, e cada módulo possui suas próprias rotas.
 
 ## Pokémons
@@ -41,9 +9,9 @@ Atualmente a API possui dos módulos, e cada módulo possui suas próprias rotas
 Listar todos os pokémons, sendo possível filtrar pelo nome ou por um ou mais tipos. Vale ressaltar que ao escolher filtrar por mais de um tipo, será retornado **todos** os pokémons que abrangem estes tipos.
 
 **Rota**
-<pre>
-<span class="text-white bg-blue rounded-1 uppercase px-2 py-1">GET</span>  /pokemons
-</pre>
+```
+GET  /pokemons
+```
 
 **Parâmetros**
 | Nome | Tipo | Segmento | Descrição |
@@ -54,13 +22,13 @@ Listar todos os pokémons, sendo possível filtrar pelo nome ou por um ou mais t
 <br />
 
 **Exemplos de Requisição**
-<pre>
+```
 /pokemons
 /pokemons/?name=cha
 /pokemons/?type=fire
 /pokemons/?name=cha&type=fire
 /pokemons/?name=ch&type=fire,dragon
-</pre>
+```
 
 <br />
 
@@ -108,9 +76,9 @@ Status: 200 OK
 Criar um time, passando o nome do treinador e os pokémons da equipe. **Obs.:** nos requisitos do desafio é dito para usar o nome do treinador, porém logo em seguida é dito para usar o nome do time. Para não haver dúvidas, será usados os dois campos durante a criação.
 
 **Rota**
-<pre>
-<span class="text-white bg-green rounded-1 uppercase px-2 py-1">post</span>  /teams
-</pre>
+```
+POST  /teams
+```
 
 **Parâmetros**
 | Nome | Tipo | Segmento | Descrição |
@@ -125,34 +93,34 @@ Criar um time, passando o nome do treinador e os pokémons da equipe. **Obs.:** 
 
 ```javascript
 {
-	"trainer_name": "Lucas",
-	"team_name": "GrassFire",
-	"pokemons": [
-		{
+  "trainer_name": "Lucas",
+  "team_name": "GrassFire",
+  "pokemons": [
+    {
       "id": 1,
       "name": "bulbasaur"
     },
-		{
+    {
       "id": 2,
       "name": "ivysaur"
     },
-		{
+    {
       "id": 3,
       "name": "venusaur"
     },
-		{
+    {
       "id": 4,
       "name": "charmander"
     },
-		{
+    {
       "id": 5,
       "name": "charmeleon"
     },
-		{
-			"id": 6,
-			"name": "charizard"
-		}
-	]
+    {
+      "id": 6,
+      "name": "charizard"
+    }
+  ]
 }
 ```
 
@@ -160,7 +128,7 @@ Criar um time, passando o nome do treinador e os pokémons da equipe. **Obs.:** 
 
 **Exemplo de Resposta**
 
-Resposta caso o usuário passe as informações corretamente
+Resposta caso o usuário informe as informações corretamente.
 ```
 Status: 200 OK
 ```
@@ -312,7 +280,7 @@ Status: 404 Not Found
 }
 ```
 
-Resposta caso o usuário **alguns** pokémons com `id` não presente no banco de dados
+Resposta caso o usuário **alguns** pokémons com `id` não presente no banco de dados.
 ```
 Status: 404 Not Found
 ```
