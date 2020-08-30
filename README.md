@@ -1,14 +1,6 @@
 # PokemonAPI
 
-- Instalação
-- Escolha de Ferramentas
-- Tecnologias
-- Raciocínio por trás das decisões
-- Anotar o máximo possível de informações
-
 > Visualize pokémons e crie times
-
-<br />
 
 ## Instalação
 Primeiramente você precisa instalar os seguintes programas para poder utilizar a aplicação
@@ -29,8 +21,6 @@ yarn install
 
 ## Iniciando aplicação
 
-<br />
-
 ### Rodando com Docker
 
 Para preparar o banco de dados e rodar a aplicação, você precisa apenas executar os seguintes comandos:
@@ -39,8 +29,6 @@ sudo chmod +x build.sh
 ./build.sh
 ```
 Ao finalizar este comando, o MongoDB estará sendo executado na porta 27017 e a aplicação na porta 3333.
-
-<br />
 
 ### Executando manualmente
 
