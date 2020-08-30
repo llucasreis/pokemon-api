@@ -14,8 +14,8 @@
 Primeiramente você precisa instalar os seguintes programas para poder utilizar a aplicação
 - [Node.js](https://nodejs.org/en/download)
 - [Yarn](https://yarnpkg.com)
-- Docker
-- Docker Compose
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
 Após isso você pode clonar o repositório via HTTP com o comando:
 ```
@@ -79,3 +79,11 @@ yarn dev
 - **Jest**
   - Possibilita a execução de testes unitários.
   - Escolhido por ser de fácil uso e pela afinidade com a biblioteca.
+
+## Explicação sobre o Código
+
+Para facilitar a leitura da documentação, a explicação sobre o código foi dividido em três arquivos, um para mostrar uma visão geral do código, outro para explicar alguns raciocínios adotados e outro para detalhar as rotas da aplicação.
+
+- [Visão Geral](.github/visao-geral.md)
+- [Explicação Geral](.github/explicacao-geral.md)
+- [Rotas](.github/rotas.md)
