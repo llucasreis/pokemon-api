@@ -1,4 +1,3 @@
-// import container from '../container';
 import AppValidationError from '../../../shared/errors/AppValidationError';
 
 export default class CreateTeamService {
@@ -16,10 +15,6 @@ export default class CreateTeamService {
         field: 'trainer_name',
         message: 'trainer_name length must be at least 5 characters long.',
       });
-      // throw new AppValidationError(
-      //   'trainer_name',
-      //   'trainer_name length must be at least 5 characters long.',
-      // );
     }
 
     if (team_name.length < 5) {
@@ -27,10 +22,6 @@ export default class CreateTeamService {
         field: 'team_name',
         message: 'team_name length must be at least 5 characters long',
       });
-      // throw new AppValidationError(
-      //   'team_name',
-      //   'team_name length must be at least 5 characters long',
-      // );
     }
 
     if (pokemons.length === 0 || pokemons.length > 6) {
@@ -38,10 +29,6 @@ export default class CreateTeamService {
         field: 'pokemons',
         message: 'pokemons must contain less than or equal to 6 items.',
       });
-      // throw new AppValidationError(
-      //   'pokemons',
-      //   'pokemons must contain less than or equal to 6 items.',
-      // );
     }
 
     if (badRequestErrors.length) throw new AppValidationError(badRequestErrors);
@@ -55,11 +42,6 @@ export default class CreateTeamService {
         field: 'pokemons',
         message: 'Could not found any pokemon in given array',
       });
-      // throw new AppValidationError(
-      //   'pokemons',
-      //   'Could not found any pokemon',
-      //   404,
-      // );
     } else {
       const existentPokemonsIds = existentPokemons.map(pokemon => pokemon.id);
 
@@ -72,11 +54,6 @@ export default class CreateTeamService {
           field: 'pokemons',
           message: 'Some pokemons could not be found',
         });
-        // throw new AppValidationError(
-        //   'pokemons',
-        //   'Some pokemons could not be found.',
-        //   404,
-        // );
       }
     }
 
