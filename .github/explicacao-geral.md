@@ -2,6 +2,15 @@
 
 Esta seção serve para explicar de forma mais detalhada algumas escolhas e raciocínios feitos durante o desenvolvimento da API. É importante ressaltar que foi utilizado alguns princípios do SOLID e DDD, mas que **não foi seguido** à risca todos os ensinamentos, eles foram adaptados conforme a realidade do projeto.
 
+# Conteúdo
+  - [Campos durante a criação do Time](#campos-durante-a-criação-do-time)
+  - [Regras de Negócio](#regras-de-negócio)
+  - [Camadas da aplicação](#camadas-da-aplicação)
+  - [Banco de Dados](#banco-de-dados)
+  - [Single Responsibility Principle](#single-responsibility-principle)
+  - [Liskov Substitution Principle](#liskov-substitution-principle)
+  - [Dependency Inversion Principle](#dependency-inversion-principle)
+
 ## Campos durante a criação do Time
 
 Durante a descrição do desafio, é dito que para criar um time precisa informar os pokémons e o nome do treinador, mas logo em seguida pede-se para validar o nome do time.

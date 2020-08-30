@@ -4,6 +4,12 @@ Esta API tem como foco manipular dados do universo Pokémon, nesta primeira vers
 
 Este código está estruturado seguindo práticas abortadas nos princípios de SOLID e DDD.
 
+# Conteúdo
+  - [Estrutura de pastas](#estrutura-de-pastas)
+    - [Config (Configuração)](#config-configuração)
+    - [Modules (Módulos)](#modules-módulos)
+    - [Shared (Compartilhado)](#shared-compartilhado)
+
 ## Estrutura de pastas
 
 Na raiz do projeto é possível visualizar os seguintes arquivos:

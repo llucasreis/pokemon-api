@@ -2,6 +2,12 @@
 
 Atualmente a API possui dos módulos, e cada módulo possui suas próprias rotas.
 
+# Conteúdo
+  - [Pokémons](#pokémons)
+    - [Listar pokémons](#listar-pokémons)
+  - [Times](#times)
+    - [Criar times](#criar-times)
+
 ## Pokémons
 
 ### Listar pokémons
