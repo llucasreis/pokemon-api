@@ -2,16 +2,16 @@
 
 > Visualize pokémons e crie times
 
-# Conteúdo
-  - [Instalação](#instalação)
-  - [Iniciando aplicação](#iniciando-aplicação)
+# :pushpin: Conteúdo
+  - [Instalação](#construction_worker-instalação)
+  - [Iniciando aplicação](#wrench-iniciando-aplicação)
     - [Rodando com Docker](#rodando-com-docker)
     - [Executando manualmente](#executando-manualmente)
-  - [Tecnologias utilizadas](#tecnologias-utilizadas)
-  - [Explicação sobre o Código](#explicação-sobre-o-código)
+  - [Tecnologias utilizadas](#rocket-tecnologias-utilizadas)
+  - [Explicação sobre o Código](#books-explicação-sobre-o-código)
 
-## Instalação
-Primeiramente você precisa instalar os seguintes programas para poder utilizar a aplicação
+## :construction_worker: Instalação
+Primeiramente você precisa instalar os seguintes programas para poder utilizar a aplicação:
 - [Node.js](https://nodejs.org/en/download)
 - [Yarn](https://yarnpkg.com)
 - [Docker](https://www.docker.com/get-started)
@@ -22,12 +22,12 @@ Após isso você pode clonar o repositório via HTTP com o comando:
 git clone https://github.com/lprs110/pokemon-api.git
 ```
 
-Para instalar as dependências:
+E para instalar as dependências:
 ```
 yarn install
 ```
 
-## Iniciando aplicação
+## :wrench: Iniciando aplicação
 
 ### Rodando com Docker
 
@@ -44,12 +44,16 @@ Caso você queira configurar manualmente, inicialmente precisa-se instalar o Mon
 ```
 docker run --name mongodb -p 27017:27017 -d -t database
 ```
-Ao final, execute o seguinte comando para iniciar a aplicação em ambiente de desenvolvimento
+Após a incialização, é necessário popular o banco com dados dos pokémons, através do comando:
+```
+docker exec -i database sh -c 'mongoimport --db pokemonapi --collection pokemons --drop --jsonArray' < pokemon.json
+```
+Por fim, execute o seguinte comando para iniciar a aplicação em ambiente de desenvolvimento:
 ```
 yarn dev
 ```
 
-## Tecnologias utilizadas
+## :rocket: Tecnologias utilizadas
 
 - **Express**
   - Possibilita a construção de rotas da API.
@@ -76,10 +80,12 @@ yarn dev
   - Possibilita a execução de testes unitários.
   - Escolhido por ser de fácil uso e pela afinidade com a biblioteca.
 
-## Explicação sobre o Código
+## :books: Explicação sobre o Código
 
 Para facilitar a leitura da documentação, a explicação sobre o código foi dividido em três arquivos, um para mostrar uma visão geral do código, outro para explicar alguns raciocínios adotados e outro para detalhar as rotas da aplicação.
 
 - [Visão Geral](.github/visao-geral.md)
 - [Explicação Geral](.github/explicacao-geral.md)
 - [Rotas](.github/rotas.md)
+
+Desenvolvido por [Lucas Reis](https://github.com/lprs110).
