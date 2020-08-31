@@ -2,8 +2,6 @@
 
 Esta API tem como foco manipular dados do universo Pokémon, nesta primeira versão é possível listar todos os pokémons (com opções de filtro) e criar seu próprio time.
 
-Este código está estruturado seguindo práticas abortadas nos princípios de SOLID e DDD.
-
 # Conteúdo
   - [Estrutura de pastas](#estrutura-de-pastas)
     - [Config (Configuração)](#config-configuração)
@@ -30,7 +28,7 @@ A pasta ```coverage``` exibe o relatório de testes gerado pelo ```jest```. A pa
 
 ![Estrutura do código](src-estrutura.png)
 
-Como dito anteriormente, a estrutura do código e pastas foi pensada seguindo alguns princípios do SOLID e DDD, sua estrutura será explicado nos próximos tópicos.
+Esta estrutura de pastas foi pensada seguindo alguns princípios do DDD visando isolar alguns componentes da aplicação, sua estrutura será explicada nos próximos tópicos.
 
 ### Config (Configuração)
 
@@ -38,14 +36,14 @@ Esta pasta é responsável por armazenar configurações de acessos externos (co
 
 ### Modules (Módulos)
 
-A pasta ```modules``` guarda de fato todo os códigos relacionados à regras de negócio e entidades da aplicação. Para cada módulo novo, é criado uma nova subpasta específica para armazenar todas as suas regra.Esta escolha de estrutura foi feita para evitar que as pastas cresçam muito e assim dificultem a manutenção, na forma atual cada módulo segue a mesma estrutura interna e tem pouco risco de haver um crescimento muito grande de códigos em uma pasta.
+A pasta ```modules``` guarda de fato todo os códigos relacionados à regras de negócio e entidades da aplicação. Para cada módulo novo, é criado uma nova subpasta específica para armazenar todas as suas regras. Esta escolha de estrutura foi feita para evitar que as pastas cresçam muito e assim dificultem a manutenção, na forma atual cada módulo segue a mesma estrutura interna e tem pouco risco de haver um crescimento muito grande de códigos em uma pasta.
 
-Cada módulo interno possui uma pasta ```infra``` para armazenar códigos da infraestrutura do módulo e uma pasta ```services``` para armazenar os códigos que serão responsáveis pelas regras de negócio e que também serão testados. Dentro da pasta ```infra``` pode-se observar a pasta ```mongoose``` que possui o esquema utilizado no banco (dentro de ```models```) e o código para consultar ou adicionar dados no banco (dentro de ```repositories```). Por fim, também está presente a pasta ```http``` com as rotas e *controllers* da aplicação.
+Cada módulo possui uma pasta interna ```infra``` para armazenar códigos da infraestrutura e uma pasta ```services``` para armazenar os códigos que serão responsáveis pelas regras de negócio e que também serão testados. Dentro da pasta ```infra``` pode-se observar a pasta ```mongoose``` que possui o esquema utilizado no banco (dentro de ```models```) e o código para consultar ou adicionar dados no banco (dentro de ```repositories```). Por fim, também está presente a pasta ```http``` com as rotas e *controllers* da aplicação.
 
 Os códigos utilizados para realizar os testes unitários estão presentes dentro das pastas ```services```, cada serviço possui um teste relacionado. O repositório utilizado para o ambiente de testes localiza-se dentro de ```repositories``` na pasta ```fakes```, esta divisão foi criada para separar o ambiente de testes do ambiente de desenvolvimento, possibilitando assim rodar testes unitários em um ambiente isolado.
 
 ### Shared (Compartilhado)
 
-Esta pasta possui códigos que serão utilizados por toda a aplicação, a subpasta ```errors``` armazena classes de erros que podem ser utilizadas pela aplicação. A subpasta ```infra``` possui as pastas e códigos relacionados com a infraestrutura da aplicação, neste caso temos somente a ```http``` com as pastas de ```routes``` para definir as rotas da aplicação, e ```middlewares``` para armazenar todos os *middlewares* compartilhados.
+Esta pasta possui códigos que serão compartilhados por todos os módulso da aplicação, a subpasta ```errors``` armazena classes de erros que podem ser utilizadas pela aplicação. A subpasta ```infra``` possui as pastas e códigos relacionados com a infraestrutura da aplicação, neste caso temos somente a ```http``` com as pastas de ```routes``` para definir as rotas da aplicação, e ```middlewares``` para armazenar todos os *middlewares* compartilhados.
 
 Nas próximas seções será detalhada o funcionamento das rotas e explicado a estrutura de alguns códigos.

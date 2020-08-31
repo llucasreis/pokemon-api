@@ -50,6 +50,8 @@ A próxima etapa é analisar como os dados serão armazenados. Para salvar a lis
 
 Ao final desta análise, o banco de dados escolhido para a aplicação foi o MongoDB, pela sua fácil utilização e integração com o Javascript (quando utilizado em conjunto com o Mongoose).
 
+O MongoDB possui seu próprio campo chamado o `_id`, mas decidiu-se continuar utilizando o `id` presente nos dados de pokémon por ficar mais fácil de testar sua utilização quando for criar um time, assim cada pokémon possui dois ids, um do MongoDB e outro dele mesmo. Essa validação pode ser facilmente alterada, precisando apenas modificar os códigos desenvolvidos nos `repositories` e as requisições feitas.
+
 ## Single Responsibility Principle
 
 Este é um dos princípios do SOLID, de forma simples ele afirma que uma classe deve possuir uma única responsabilidade. Este princípio foi adotado principalmente para os `services` da aplicação, pois como eles são responsáveis por validar as regras de negócio, é interessante ter vários serviços com suas próprias responsabilidades, ao invés de ter apenas um arquivo com diversas funções (podendo dificultar a manutenção do código).
