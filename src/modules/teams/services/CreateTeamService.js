@@ -1,11 +1,26 @@
 import AppValidationError from '../../../shared/errors/AppValidationError';
 
+/** Class representing a service to Create a Team */
 export default class CreateTeamService {
+  /**
+   * Create a service
+   * @param {TeamsRepository} teamsRepository - The repository of teams
+   * @param {PokemonsRepository} pokemonsRepository - The repository of pokemons
+   */
   constructor(teamsRepository, pokemonsRepository) {
     this.teamsRepository = teamsRepository;
     this.pokemonsRepository = pokemonsRepository;
   }
 
+  /**
+   * Validate data received and create a new team
+   * @param {Object} request - the request data to create a team.
+   * @param {string} request.trainer_name - The name of the trainer.
+   * @param {string} request.team_name - The name of the team.
+   * @param {array} request.pokemons - The list of pokemons
+   *
+   * @returns {Object} a new team
+   */
   async execute({ trainer_name, team_name, pokemons }) {
     const badRequestErrors = [];
     const notFoundErrors = [];

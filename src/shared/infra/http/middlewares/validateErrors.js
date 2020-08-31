@@ -2,6 +2,15 @@ import { isCelebrate } from 'celebrate';
 import AppError from '../../../errors/AppError';
 import AppValidationError from '../../../errors/AppValidationError';
 
+/**
+ * A middleware to intercept and return custom errors
+ * @export
+ * @param {(Error | CelebrateError | AppError | AppValidationError)} err
+ * @param {Express.Request} req
+ * @param {Express.Response} res
+ * @param {Express.NextFunction} _next
+ * @returns {Express.Response} An array of errors each one with field and message
+ */
 export default function validateErrors(err, req, res, _next) {
   if (isCelebrate(err)) {
     const celebrateErrors = [];

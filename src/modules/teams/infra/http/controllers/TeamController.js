@@ -5,7 +5,15 @@ import PokemonsRepository from '../../../../pokemons/infra/mongoose/repositories
 const teamsRepository = new TeamsRepository();
 const pokemonsRepository = new PokemonsRepository();
 
+/** Class representing a controller to manage Teams */
 export default class TeamController {
+  /**
+   * Receive data from request and create a team
+   * @param {Express.Request} req - the express request
+   * @param {Express.Response} res - the express response
+   *
+   * @returns {Express.Response} a json with a new team
+   */
   async create(req, res) {
     const { trainer_name, team_name, pokemons } = req.body;
 
